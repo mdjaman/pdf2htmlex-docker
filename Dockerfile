@@ -19,9 +19,10 @@ RUN apk --update add alpine-sdk xz poppler-dev pango-dev m4 libtool perl autocon
     rm /var/cache/apk/* && \
     rm -rf /fontforge /libspiro /libuninameslist /pdf2htmlEX
 
+RUN ln -s usr/local/bin/pdf2htmlEX
 RUN mkdir /pdf && chmod 0775 /pdf
 VOLUME /pdf
 WORKDIR /pdf
 
 ENTRYPOINT ["/usr/local/bin/pdf2htmlEX"]
-CMD ["/usr/local/bin/pdf2htmlEX"]
+CMD ["pdf2htmlEX"]
