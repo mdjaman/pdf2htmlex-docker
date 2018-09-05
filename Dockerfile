@@ -23,6 +23,3 @@ RUN ln -s usr/local/bin/pdf2htmlEX
 RUN mkdir /pdf && chmod 0775 /pdf
 VOLUME /pdf
 WORKDIR /pdf
-
-ENTRYPOINT ["/usr/local/bin/pdf2htmlEX"]
-CMD ["pdf2htmlEX"]
