@@ -1,7 +1,5 @@
 FROM alpine:3.2
 
-ENV REFRESHED_AT 20151105
-
 RUN apk --update add alpine-sdk xz poppler-dev pango-dev m4 libtool perl autoconf automake coreutils python-dev zlib-dev freetype-dev glib-dev cmake && \
     cd / && \
     git clone https://github.com/BWITS/fontforge.git && \
@@ -21,7 +19,9 @@ RUN apk --update add alpine-sdk xz poppler-dev pango-dev m4 libtool perl autocon
     rm /var/cache/apk/* && \
     rm -rf /fontforge /libspiro /libuninameslist /pdf2htmlEX
 
+RUN mkdir /pdf && chmod 0775 /pdf
 VOLUME /pdf
 WORKDIR /pdf
 
 ENTRYPOINT ["/usr/local/bin/pdf2htmlEX"]
+CMD ["/usr/local/bin/pdf2htmlEX"]
